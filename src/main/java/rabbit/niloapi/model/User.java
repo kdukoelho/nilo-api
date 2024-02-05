@@ -3,14 +3,13 @@ package rabbit.niloapi.model;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity(name = User.ENTITY_NAME) @Table(name = User.TABLE_NAME)
-@RequiredArgsConstructor @NoArgsConstructor
+@RequiredArgsConstructor
 @Data
 public class User {
     public static final String TABLE_NAME = "tb_users";
