@@ -7,7 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 
-@Entity(name = User.ENTITY_NAME) @Table(name = Entry.TABLE_NAME)
+@Entity(name = Entry.ENTITY_NAME) @Table(name = Entry.TABLE_NAME)
 @RequiredArgsConstructor @NoArgsConstructor(force = true)
 @Data
 public class Entry {
