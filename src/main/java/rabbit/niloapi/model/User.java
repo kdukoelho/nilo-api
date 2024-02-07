@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
+import rabbit.niloapi.dto.user.UserRequestDTO;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,6 +15,10 @@ import java.util.List;
 public class User {
     public static final String TABLE_NAME = "tb_users";
     public static final String ENTITY_NAME = "user";
+
+    public User(UserRequestDTO userRequestDTO){
+        this.username = userRequestDTO.username();
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
