@@ -1,4 +1,6 @@
 package rabbit.niloapi.dto.user;
 
-public record UserRequestDTO(String id, String username, String password){
+import rabbit.niloapi.model.user.UserRole;
+
+public record UserRequestDTO(String id, String username, String password, UserRole userRole){
 }
