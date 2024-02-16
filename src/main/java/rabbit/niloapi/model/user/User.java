@@ -1,12 +1,14 @@
-package rabbit.niloapi.model;
+package rabbit.niloapi.model.user;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import rabbit.niloapi.dto.user.UserRequestDTO;
+import rabbit.niloapi.model.Entry;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -21,6 +23,7 @@ public class User implements UserDetails {
 
     public User(UserRequestDTO userRequestDTO){
         this.username = userRequestDTO.username();
+        this.role = userRequestDTO.userRole();
     }
 
     @Id
@@ -39,9 +42,21 @@ public class User implements UserDetails {
     @OneToMany(mappedBy = "user")
     private List<Entry> entriesList = new ArrayList<>();
 
+    private UserRole role;
+
+    public User(String username, String passwordHash, UserRole role) {
+        this.username = username;
+        this.passwordHash = passwordHash;
+        this.role = role;
+    }
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        if (this.role == UserRole.ADMIN){
+            return List.of(new SimpleGrantedAuthority("ROLE_ADMIN"), new SimpleGrantedAuthority("ROLE_USER"));
+        } else {
+            return List.of(new SimpleGrantedAuthority("ROLE_USER"));
+        }
     }
 
     @Override

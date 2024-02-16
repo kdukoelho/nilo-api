@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import rabbit.niloapi.dto.user.UserRequestDTO;
 import rabbit.niloapi.dto.user.UserResponseDTO;
-import rabbit.niloapi.model.User;
+import rabbit.niloapi.model.user.User;
 import rabbit.niloapi.repository.UserRepository;
 
 import java.util.ArrayList;

@@ -6,6 +6,7 @@ import jakarta.validation.constraints.Size;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import rabbit.niloapi.dto.entry.EntryRequestDTO;
+import rabbit.niloapi.model.user.User;
 
 @Entity(name = Entry.ENTITY_NAME) @Table(name = Entry.TABLE_NAME)
 @NoArgsConstructor(force = true)

@@ -1,6 +1,6 @@
 package rabbit.niloapi.dto.user;
 
-import rabbit.niloapi.model.User;
+import rabbit.niloapi.model.user.User;
 
 public record UserResponseDTO(String id, String username, String passwordHash) {
     public UserResponseDTO(User user){
